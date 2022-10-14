@@ -1,5 +1,6 @@
-import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from "react"
-import { Task } from "../App"
+import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Task } from "../App";
+import Button from '../styles/Button'
 
 interface TaskItemProps{
     task: Task
@@ -66,6 +67,7 @@ export function TaskItem({task, onChangeTask, onDeleteTask}: TaskItemProps){
 
             <button onClick={handleEditSaveClick}>{buttonLabel}</button>
             <button onClick={() => onDeleteTask(task.id)} >Apagar</button>
+            <Button>New</Button>
         </li>
     )
 }
