@@ -5,6 +5,12 @@ import { TaskList } from './components/list_task';
 
 import styled from 'styled-components'
 
+export interface Task {
+  id: number
+  text: string
+  done: boolean
+}
+
 const Container = styled.div`
   background-color: #97a6c2;
   padding: 50px;
@@ -24,6 +30,13 @@ const Header = styled.h1`
 `
 
 export default function App() {
+  let nextId: number = 3;
+  const initialTasks: Task[] = [
+    {id: 0, text: 'Elaborar Aulas', done: true},
+    {id: 1, text: 'Estudar Flutter - Estados', done: false},
+    {id: 2, text: 'Correr avenida Raul Lopres', done: false},
+];
+
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
 
   function handleAddTask(text: string) {
@@ -84,17 +97,3 @@ export default function App() {
     */
   )
 }
-
-export interface Task{
-  id: number
-  text: string
-  done: boolean
-}
-
-let nextId = 3;
-
-const initialTasks: Task[] = [
-  {id: 0, text: 'Elaborar Aulas', done: true},
-  {id: 1, text: 'Estudar Flutter - Estados', done: false},
-  {id: 2, text: 'Correr avenida Raul Lopres', done: false},
-];
